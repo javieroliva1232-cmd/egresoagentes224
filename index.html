@@ -4,8 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Noche de Egreso - Promoción 224</title>
+
+  <!-- Open Graph para vistas previas en WhatsApp y Redes Sociales -->
+  <meta property="og:title" content="Noche de Egreso - Promoción 224">
+  <meta property="og:description" content="¡Estás invitado a celebrar nuestra Noche de Egreso! Consulta la fecha, lugar y confirma tu asistencia.">
+  <meta property="og:image" content="https://i.postimg.cc/CxRSBszL/Whats-App-Image-2026-10-01-at-22-45-58.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Fuentes de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;600;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       background-color: #0b1a2d;
       color: #ffffff;
@@ -14,6 +28,7 @@
       padding: 20px 15px 40px 15px;
       display: flex;
       justify-content: center;
+      line-height: 1.4;
     }
     .container {
       max-width: 420px;
@@ -50,9 +65,10 @@
     /* Imagen */
     .group-photo {
       width: 100%;
-      border-radius: 4px;
+      border-radius: 6px;
       margin-bottom: 10px;
       object-fit: cover;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
     /* Contador */
     .countdown-grid {
@@ -102,19 +118,52 @@
       font-weight: 600;
       margin-bottom: 18px;
     }
-    .ticket-price {
+    /* Tarjeta de Precios */
+    .ticket-price-box {
       border: 1px solid rgba(229, 193, 88, 0.5);
       background: rgba(229, 193, 88, 0.08);
-      border-radius: 10px;
-      padding: 10px 15px;
-      font-size: 15px;
-      font-weight: 700;
-      color: #ffffff;
+      border-radius: 12px;
+      padding: 14px 16px;
       margin: 0 auto 20px auto;
-      display: inline-block;
+      text-align: left;
     }
-    .ticket-price span {
+    .ticket-title {
+      font-size: 14px;
+      font-weight: 700;
       color: #e5c158;
+      text-align: center;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .ticket-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+    }
+    .ticket-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px dashed rgba(229, 193, 88, 0.2);
+    }
+    .ticket-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .ticket-item .label {
+      color: #ffffff;
+      font-weight: 500;
+    }
+    .ticket-item .price {
+      color: #e5c158;
+      font-weight: 700;
+    }
+    .ticket-item .free {
+      color: #25d366;
+      font-weight: 700;
     }
     /* Botones principales */
     .btn-maps {
@@ -127,6 +176,7 @@
       display: block;
       font-size: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
     .btn-wsp {
       background: #25d366;
@@ -139,6 +189,11 @@
       font-size: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       margin-top: 10px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .btn-maps:active, .btn-wsp:active, .btn-contact:active {
+      transform: scale(0.98);
+      opacity: 0.9;
     }
     .btn-sub {
       font-size: 11px;
@@ -187,6 +242,10 @@
       align-items: center;
       justify-content: center;
       gap: 5px;
+      transition: background 0.2s ease;
+    }
+    .btn-contact:hover {
+      background: rgba(229, 193, 88, 0.25);
     }
     /* Cronograma */
     .timeline {
@@ -287,11 +346,27 @@
   <div class="event-time">⏰ 20:00 hs</div>
   <div class="event-location">Quinta Colegio de Abogados</div>
 
-  <!-- Precio de la tarjeta -->
-  <div class="ticket-price">Valor de la tarjeta: <span>$157.000</span></div>
+  <!-- Precios de las tarjetas -->
+  <div class="ticket-price-box">
+    <div class="ticket-title">Valor de la Tarjeta</div>
+    <ul class="ticket-list">
+      <li class="ticket-item">
+        <span class="label">Adultos</span>
+        <span class="price">$157.000</span>
+      </li>
+      <li class="ticket-item">
+        <span class="label">Menores de 10 años</span>
+        <span class="price">$78.500</span>
+      </li>
+      <li class="ticket-item">
+        <span class="label">Niños (sin silla)</span>
+        <span class="free">NO PAGAN</span>
+      </li>
+    </ul>
+  </div>
 
   <!-- Botón Google Maps -->
-  <a href="https://maps.app.goo.gl/n3C1s9eJcV7gqZJSA" target="_blank" class="btn-maps">📍 Cómo llegar al lugar</a>
+  <a href="https://maps.app.goo.gl/n3C1s9eJcV7gqZJSA" target="_blank" rel="noopener noreferrer" class="btn-maps">📍 Cómo llegar al lugar</a>
   <div class="btn-sub">Abre Google Maps</div>
 
   <!-- Código de Vestimenta -->
@@ -337,7 +412,7 @@
     <span class="sub-title">CONFIRMACIÓN</span>
     <div class="line"></div>
   </div>
-  <a href="https://wa.me/5493585765336?text=¡Hola!%20Quiero%20confirmar%20mi%20asistencia%20para%20la%20Noche%20de%20Egreso." target="_blank" class="btn-wsp">📲 Confirmar Asistencia por WhatsApp</a>
+  <a href="https://wa.me/5493585765336?text=%C2%A1Hola!%20Quiero%20confirmar%20mi%20asistencia%20para%20la%20Noche%20de%20Egreso." target="_blank" rel="noopener noreferrer" class="btn-wsp">📲 Confirmar Asistencia por WhatsApp</a>
   <div class="btn-sub">Por favor confirmar antes del 1 de Noviembre</div>
 
   <!-- Contacto -->
@@ -349,31 +424,31 @@
   <div class="info-box">
     <p class="info-box-text">¿Tienes alguna duda o consulta sobre las tarjetas?</p>
     <div class="contact-buttons">
-      <a href="https://wa.me/5493584024051?text=¡Hola%20Ulises!%20Tengo%20una%20consulta%20sobre%20las%20tarjetas%20de%20egreso." target="_blank" class="btn-contact">💬 Ulises</a>
-      <a href="https://wa.me/5493585765336?text=¡Hola%20Mateo!%20Tengo%20una%20consulta%20sobre%20las%20tarjetas%20de%20egreso." target="_blank" class="btn-contact">💬 Mateo</a>
+      <a href="https://wa.me/5493584024051?text=%C2%A1Hola%20Ulises!%20Tengo%20una%20consulta%20sobre%20las%20tarjetas%20de%20egreso." target="_blank" rel="noopener noreferrer" class="btn-contact">💬 Ulises</a>
+      <a href="https://wa.me/5493585765336?text=%C2%A1Hola%20Mateo!%20Tengo%20una%20consulta%20sobre%20las%20tarjetas%20de%20egreso." target="_blank" rel="noopener noreferrer" class="btn-contact">💬 Mateo</a>
     </div>
   </div>
 
   <!-- Frase Final -->
-  <div class="footer-quote">Juntos, escribimos historia</div>
+  <div class="footer-quote">El deber nos unió, la historia nos recordará.</div>
 
   <!-- Firma del Creador -->
   <div class="credits">
     <span>© 2026 Diseñado por <span class="credits-author">Oliva</span></span>
-    <a href="https://wa.me/5491164664816" target="_blank" class="credits-icon" title="WhatsApp">💬</a>
+    <a href="https://wa.me/5491164664816" target="_blank" rel="noopener noreferrer" class="credits-icon" title="WhatsApp">💬</a>
   </div>
 </div>
 
 <script>
-  // Configuración del contador
-  const targetDate = new Date("2026-11-14T20:00:00").getTime();
+  // Configuración del contador fijando zona horaria (-03:00 Argentina)
+  const targetDate = new Date("2026-11-14T20:00:00-03:00").getTime();
 
   function updateCountdown() {
     const now = new Date().getTime();
     const distance = targetDate - now;
 
     if (distance < 0) {
-      document.querySelector('.countdown-grid').innerHTML = "<h3>¡Llegó el gran día!</h3>";
+      document.querySelector('.countdown-grid').innerHTML = "<h3 style='grid-column: 1 / -1; color: #e5c158; margin: 10px 0;'>¡Llegó el gran día! 🎉</h3>";
       return;
     }
 
