@@ -177,15 +177,31 @@
       font-size: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       transition: transform 0.2s ease, opacity 0.2s ease;
+      margin-bottom: 4px;
     }
-    .btn-maps:active {
+    .btn-whatsapp {
+      background: linear-gradient(180deg, #25d366 0%, #128c7e 100%);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 12px 20px;
+      border-radius: 20px;
+      display: block;
+      font-size: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      margin-top: 15px;
+      margin-bottom: 4px;
+    }
+    .btn-maps:active, .btn-whatsapp:active {
       transform: scale(0.98);
       opacity: 0.9;
     }
     .btn-sub {
       font-size: 11px;
       color: #cccccc;
-      margin-top: 6px;
+      margin-top: 2px;
+      margin-bottom: 15px;
     }
     /* Bloques Informativos */
     .info-box {
@@ -330,6 +346,10 @@
   <a href="https://maps.app.goo.gl/n3C1s9eJcV7gqZJSA" target="_blank" rel="noopener noreferrer" class="btn-maps">📍 Cómo llegar al lugar</a>
   <div class="btn-sub">Abre Google Maps</div>
 
+  <!-- Botón Confirmar Asistencia (RSVP) -->
+  <a href="https://wa.me/5491164664816?text=Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20la%20Noche%20de%20Egreso%20de%20la%20Promo%20224." target="_blank" rel="noopener noreferrer" class="btn-whatsapp">💬 Confirmar Asistencia</a>
+  <div class="btn-sub">Envía un mensaje por WhatsApp</div>
+
   <!-- Código de Vestimenta -->
   <div class="divider-container">
     <div class="line"></div>
@@ -364,7 +384,7 @@
   </div>
   <div class="info-box">
     <div class="info-box-title">🥗 Restricciones Alimentarias</div>
-    <p class="info-box-text">Si requieres un menú especial (Celíaco, Vegetariano, Vegano u otra restricción), por favor tenlo en cuenta para el evento.</p>
+    <p class="info-box-text">Si requieres un menú especial (Celíaco, Vegetariano, Vegano u otra restricción), por favor comunícalo con anticipación.</p>
   </div>
 
   <!-- Frase Final -->
@@ -386,7 +406,10 @@
     const distance = targetDate - now;
 
     if (distance < 0) {
-      document.querySelector('.countdown-grid').innerHTML = "<h3 style='grid-column: 1 / -1; color: #e5c158; margin: 10px 0;'>¡Llegó el gran día! 🎉</h3>";
+      const grid = document.querySelector('.countdown-grid');
+      if (grid) {
+        grid.innerHTML = "<h3 style='grid-column: 1 / -1; color: #e5c158; margin: 10px 0;'>¡Llegó el gran día! 🎉</h3>";
+      }
       return;
     }
 
@@ -395,10 +418,15 @@
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("days").innerText = String(days).padStart(2, '0');
-    document.getElementById("hours").innerText = String(hours).padStart(2, '0');
-    document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
-    document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+    const dElem = document.getElementById("days");
+    const hElem = document.getElementById("hours");
+    const mElem = document.getElementById("minutes");
+    const sElem = document.getElementById("seconds");
+
+    if (dElem) dElem.innerText = String(days).padStart(2, '0');
+    if (hElem) hElem.innerText = String(hours).padStart(2, '0');
+    if (mElem) mElem.innerText = String(minutes).padStart(2, '0');
+    if (sElem) sElem.innerText = String(seconds).padStart(2, '0');
   }
 
   setInterval(updateCountdown, 1000);
