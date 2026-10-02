@@ -14,276 +14,377 @@
   <!-- Fuentes de Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;600;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 
   <style>
     * {
       box-sizing: border-box;
     }
+
     body {
-      background-color: #0b1a2d;
+      background-color: #060e18;
+      /* Fondo con un sutil destello radial moderno */
+      background-image: radial-gradient(circle at 50% 0%, #10243e 0%, #060e18 75%);
       color: #ffffff;
       font-family: 'Montserrat', sans-serif;
       margin: 0;
-      padding: 20px 15px 40px 15px;
+      padding: 30px 15px 50px 15px;
       display: flex;
       justify-content: center;
-      line-height: 1.4;
+      line-height: 1.5;
+      min-height: 100vh;
     }
+
     .container {
       max-width: 420px;
       width: 100%;
       text-align: center;
+      animation: fadeIn 1s ease-out;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* Encabezados y separadores */
     .header-title {
       font-family: 'Cinzel', serif;
-      color: #e5c158;
-      font-size: 26px;
-      letter-spacing: 2px;
+      color: #f3d57b;
+      font-size: 28px;
+      letter-spacing: 3px;
       margin: 0 0 5px 0;
       font-weight: 700;
+      text-shadow: 0 2px 15px rgba(229, 193, 88, 0.2);
     }
+
     .divider-container {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      margin: 20px 0 15px 0;
+      gap: 12px;
+      margin: 25px 0 15px 0;
     }
+
     .line {
       height: 1px;
-      background-color: #e5c158;
+      background: linear-gradient(90deg, transparent, #e5c158, transparent);
       flex-grow: 1;
     }
+
     .sub-title {
       font-family: 'Cinzel', serif;
       color: #e5c158;
-      font-size: 14px;
-      letter-spacing: 2px;
+      font-size: 13px;
+      letter-spacing: 3px;
+      font-weight: 600;
     }
-    /* Imagen */
+
+    /* Imagen con marco moderno */
+    .photo-wrapper {
+      position: relative;
+      padding: 6px;
+      background: linear-gradient(135deg, rgba(229, 193, 88, 0.4), rgba(255, 255, 255, 0.05));
+      border-radius: 14px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
     .group-photo {
       width: 100%;
-      border-radius: 6px;
-      margin-bottom: 10px;
+      border-radius: 10px;
+      display: block;
       object-fit: cover;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
-    /* Contador */
+
+    /* Contador Estilo Moderno (Glassmorphism) */
     .countdown-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin: 15px 0;
+      gap: 10px;
+      margin: 20px 0;
     }
+
     .card {
-      border: 1.5px solid #e5c158;
-      border-radius: 12px;
-      padding: 10px 5px;
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(229, 193, 88, 0.25);
+      border-radius: 14px;
+      padding: 12px 5px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
     }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(229, 193, 88, 0.6);
+    }
+
     .card .num {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 700;
       display: block;
       line-height: 1;
+      color: #ffffff;
+      font-family: 'Cinzel', serif;
     }
+
     .card .label {
-      font-size: 10px;
-      color: #d4af37;
+      font-size: 9px;
+      color: #e5c158;
       margin-top: 6px;
       font-weight: 600;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
     }
+
     .star {
       color: #e5c158;
-      font-size: 18px;
-      margin: 15px 0;
+      font-size: 16px;
+      margin: 20px 0;
+      opacity: 0.8;
     }
+
     /* Detalles del evento */
     .event-date {
-      font-size: 18px;
+      font-size: 19px;
       font-weight: 700;
       margin-bottom: 6px;
+      letter-spacing: 0.5px;
     }
+
     .event-time {
       font-size: 15px;
       color: #e5c158;
       font-weight: 600;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
+
     .event-location {
       font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 18px;
+      font-weight: 500;
+      color: #d0d7de;
+      margin-bottom: 20px;
     }
-    /* Tarjeta de Precios */
+
+    /* Tarjeta de Precios Moderna */
     .ticket-price-box {
-      border: 1px solid rgba(229, 193, 88, 0.5);
-      background: rgba(229, 193, 88, 0.08);
-      border-radius: 12px;
-      padding: 14px 16px;
-      margin: 0 auto 20px auto;
+      background: rgba(18, 33, 56, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(229, 193, 88, 0.3);
+      border-radius: 16px;
+      padding: 18px;
+      margin: 0 auto 25px auto;
       text-align: left;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
     }
+
     .ticket-title {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       color: #e5c158;
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
+      font-family: 'Cinzel', serif;
     }
+
     .ticket-list {
       list-style: none;
       padding: 0;
       margin: 0;
       font-size: 14px;
     }
+
     .ticket-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 6px 0;
-      border-bottom: 1px dashed rgba(229, 193, 88, 0.2);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(229, 193, 88, 0.1);
     }
+
     .ticket-item:last-child {
       border-bottom: none;
       padding-bottom: 0;
     }
+
     .ticket-item .label {
-      color: #ffffff;
-      font-weight: 500;
+      color: #e2e8f0;
+      font-weight: 400;
     }
+
     .ticket-item .price {
-      color: #e5c158;
+      color: #f3d57b;
       font-weight: 700;
     }
+
     .ticket-item .free {
-      color: #25d366;
+      color: #34d399;
       font-weight: 700;
     }
-    /* Botones principales */
+
+    /* Botones Modernos con Gradiente y Efectos */
     .btn-maps {
-      background: linear-gradient(180deg, #ebd07b 0%, #c19935 100%);
-      color: #000000;
+      background: linear-gradient(135deg, #f3d57b 0%, #c19935 100%);
+      color: #060e18;
       text-decoration: none;
       font-weight: 700;
-      padding: 12px 20px;
-      border-radius: 20px;
+      padding: 14px 20px;
+      border-radius: 30px;
       display: block;
       font-size: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: transform 0.2s ease, opacity 0.2s ease;
-      margin-bottom: 4px;
+      box-shadow: 0 6px 20px rgba(193, 153, 53, 0.3);
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
     }
+
+    .btn-maps:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(193, 153, 53, 0.5);
+    }
+
     .btn-whatsapp {
-      background: linear-gradient(180deg, #25d366 0%, #128c7e 100%);
+      background: linear-gradient(135deg, #34d399 0%, #059669 100%);
       color: #ffffff;
       text-decoration: none;
       font-weight: 700;
-      padding: 12px 20px;
-      border-radius: 20px;
+      padding: 14px 20px;
+      border-radius: 30px;
       display: block;
       font-size: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      box-shadow: 0 6px 20px rgba(5, 150, 105, 0.3);
+      transition: all 0.3s ease;
       margin-top: 15px;
-      margin-bottom: 4px;
+      letter-spacing: 0.5px;
     }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(5, 150, 105, 0.5);
+    }
+
     .btn-maps:active, .btn-whatsapp:active {
-      transform: scale(0.98);
-      opacity: 0.9;
+      transform: scale(0.97);
     }
+
     .btn-sub {
       font-size: 11px;
-      color: #cccccc;
-      margin-top: 2px;
-      margin-bottom: 15px;
+      color: #94a3b8;
+      margin-top: 6px;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
     }
-    /* Bloques Informativos */
+
+    /* Bloques Informativos Modernos */
     .info-box {
-      border: 1px solid rgba(229, 193, 88, 0.3);
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 15px;
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(229, 193, 88, 0.2);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
       text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
+
     .info-box-title {
       color: #e5c158;
       font-size: 15px;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 1px;
     }
+
     .info-box-text {
       font-size: 13px;
-      line-height: 1.5;
-      color: #e0e0e0;
+      line-height: 1.6;
+      color: #cbd5e1;
       margin: 0;
     }
-    /* Cronograma */
+
+    /* Cronograma Estilizado */
     .timeline {
       text-align: left;
-      margin: 10px 0;
-      padding-left: 10px;
+      margin: 5px 0;
+      padding-left: 5px;
     }
+
     .timeline-item {
       display: flex;
       align-items: center;
       gap: 15px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      position: relative;
     }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
     .timeline-time {
       color: #e5c158;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 13px;
       min-width: 65px;
+      font-family: 'Cinzel', serif;
     }
+
     .timeline-desc {
       font-size: 13px;
-      color: #ffffff;
+      color: #e2e8f0;
     }
-    /* Footer */
+
+    /* Frase Final */
     .footer-quote {
       font-family: 'Playfair Display', serif;
       font-style: italic;
       color: #e5c158;
       font-size: 18px;
-      margin-top: 30px;
-      border-top: 1px solid #e5c158;
-      padding-top: 15px;
+      margin-top: 35px;
+      border-top: 1px solid rgba(229, 193, 88, 0.3);
+      padding-top: 20px;
+      letter-spacing: 0.5px;
     }
+
     /* Firma del Creador */
     .credits {
       font-size: 11px;
-      color: #a0aab5;
+      color: #94a3b8;
       margin-top: 25px;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
       flex-wrap: wrap;
     }
+
     .credits-author {
       color: #e5c158;
       font-weight: 600;
     }
+
     .credits-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 24px;
-      height: 24px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
-      background: rgba(229, 193, 88, 0.15);
+      background: rgba(229, 193, 88, 0.1);
       color: #e5c158;
       text-decoration: none;
       font-size: 12px;
-      border: 1px solid rgba(229, 193, 88, 0.4);
+      border: 1px solid rgba(229, 193, 88, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .credits-icon:hover {
+      background: rgba(229, 193, 88, 0.25);
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -298,8 +399,10 @@
     <div class="line"></div>
   </div>
 
-  <!-- Foto Grupal -->
-  <img src="https://i.postimg.cc/CxRSBszL/Whats-App-Image-2026-10-01-at-22-45-58.jpg" alt="Promoción 224" class="group-photo">
+  <!-- Foto Grupal con marco moderno -->
+  <div class="photo-wrapper">
+    <img src="https://i.postimg.cc/CxRSBszL/Whats-App-Image-2026-10-01-at-22-45-58.jpg" alt="Promoción 224" class="group-photo">
+  </div>
 
   <!-- Subtítulo Contador -->
   <div class="divider-container">
@@ -308,7 +411,7 @@
     <div class="line"></div>
   </div>
 
-  <!-- Contador -->
+  <!-- Contador con diseño Glassmorphism -->
   <div class="countdown-grid">
     <div class="card"><span class="num" id="days">00</span><span class="label">DÍAS</span></div>
     <div class="card"><span class="num" id="hours">00</span><span class="label">HRS</span></div>
@@ -316,14 +419,14 @@
     <div class="card"><span class="num" id="seconds">00</span><span class="label">SEG</span></div>
   </div>
 
-  <div class="star">★</div>
+  <div class="star">✦ ✦ ✦</div>
 
   <!-- Detalles del Evento -->
   <div class="event-date">14 de Noviembre de 2026</div>
   <div class="event-time">⏰ 20:00 hs</div>
   <div class="event-location">Quinta Colegio de Abogados</div>
 
-  <!-- Precios de las tarjetas -->
+  <!-- Tarjeta de Precios -->
   <div class="ticket-price-box">
     <div class="ticket-title">Valor de la Tarjeta</div>
     <ul class="ticket-list">
@@ -388,7 +491,7 @@
   </div>
 
   <!-- Frase Final -->
-  <div class="footer-quote">El deber nos unió, la historia nos recordará.</div>
+  <div class="footer-quote">"El deber nos unió, la historia nos recordará."</div>
 
   <!-- Firma del Creador -->
   <div class="credits">
@@ -408,7 +511,7 @@
     if (distance < 0) {
       const grid = document.querySelector('.countdown-grid');
       if (grid) {
-        grid.innerHTML = "<h3 style='grid-column: 1 / -1; color: #e5c158; margin: 10px 0;'>¡Llegó el gran día! 🎉</h3>";
+        grid.innerHTML = "<h3 style='grid-column: 1 / -1; color: #e5c158; margin: 10px 0; font-family: Cinzel, serif;'>¡Llegó el gran día! 🎉</h3>";
       }
       return;
     }
